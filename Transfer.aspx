@@ -8,7 +8,7 @@
 
      <% 
         DataRow data = UserLogin.getCustomer(Session["UserId"].ToString()).Rows[0];
-    %>
+    %><a href="Transfer.aspx">Transfer.aspx</a>
 
 
       <div class="container">
