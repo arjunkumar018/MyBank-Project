@@ -18,64 +18,64 @@ namespace MyBank
                 Response.Redirect("login.aspx");
             }
 
-            string UserId = Session["UserId"].ToString();
+            //string UserId = Session["UserId"].ToString();
 
-            DataTable table = new DataTable();
+            //DataTable table = new DataTable();
 
-            table.Columns.AddRange(new DataColumn[6] {
-                            new DataColumn("SrNo"),
-                            new DataColumn("TId"),
-                            new DataColumn("Remark"),
-                            new DataColumn("Amount"),
-                            new DataColumn("Date"),
-                            new DataColumn("Info")
-                        });
-
-
-            DataRow row;
-            int srno = 1;
-            foreach (DataRow rows in UserLogin.getTransactions(UserId).Rows)
-            {
+            //table.Columns.AddRange(new DataColumn[6] {
+            //                new DataColumn("SrNo"),
+            //                new DataColumn("TId"),
+            //                new DataColumn("Remark"),
+            //                new DataColumn("Amount"),
+            //                new DataColumn("Date"),
+            //                new DataColumn("Info")
+            //            });
 
 
-                string remark = rows["remark"].ToString();
-                string remarks = rows["remark"].ToString();
-                string info = "";
-                string fromAccount = rows["fromAccount"].ToString();
-                string toAccount = rows["toAccount"].ToString();
+            //DataRow row;
+            //int srno = 1;
+            //foreach (DataRow rows in UserLogin.getTransactions(UserId).Rows)
+            //{
 
-                if (fromAccount == UserId)
-                {
-                    info = "db";
-                    if (remark == "transfer")
-                    {
-                        remarks = "transfer - " + toAccount;
-                    }
-                }
-                else if (toAccount == UserId)
-                {
-                    info = "cr";
-                    if (remark == "transfer")
-                    {
-                        remarks = "transfer - " + fromAccount;
-                    }
-                }
 
-                row = table.NewRow();
-                row["SrNo"] = srno;
-                row["TId"] = rows["id"];
-                row["Amount"] = rows["amount"];
-                row["Date"] = rows["date"];
-                row["Remark"] = remarks;
-                row["Info"] = info;
+            //    string remark = rows["remark"].ToString();
+            //    string remarks = rows["remark"].ToString();
+            //    string info = "";
+            //    string fromAccount = rows["fromAccount"].ToString();
+            //    string toAccount = rows["toAccount"].ToString();
 
-                table.Rows.Add(row);
+            //    if (fromAccount == UserId)
+            //    {
+            //        info = "db";
+            //        if (remark == "transfer")
+            //        {
+            //            remarks = "transfer - " + toAccount;
+            //        }
+            //    }
+            //    else if (toAccount == UserId)
+            //    {
+            //        info = "cr";
+            //        if (remark == "transfer")
+            //        {
+            //            remarks = "transfer - " + fromAccount;
+            //        }
+            //    }
 
-                srno++;
-            }
+            //    row = table.NewRow();
+            //    row["SrNo"] = srno;
+            //    row["TId"] = rows["id"];
+            //    row["Amount"] = rows["amount"];
+            //    row["Date"] = rows["date"];
+            //    row["Remark"] = remarks;
+            //    row["Info"] = info;
 
-            transaction.DataSource = table;
-            transaction.DataBind();
+            //    table.Rows.Add(row);
+
+            //    srno++;
+            //}
+
+            //transaction.DataSource = table;
+            //transaction.DataBind();
         }
     }
 }
