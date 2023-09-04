@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using MyBank.Admin;
 using System.Data;
 using MyBank;
-
+using MyBank.MyMail;
 
 namespace MyBank
 {
@@ -38,23 +38,18 @@ namespace MyBank
             var ad = address.Value;
             var branch = branches.SelectedValue;
 
-            if(UserLogin.checkCustomer(em).Rows.Count!=0)
+            if (UserLogin.checkCustomer(em).Rows.Count != 0)
             {
                 Response.Write("<script>alert('customer already exist....!')</script>");
                 return;
             }
 
-            int x = UserLogin.addCustomer(nm, ag, gn, em, ps, ad, branch);
-            if (x > 0)
-            {
-                Response.Write("<script>alert('customer registeration successfully....!')</script>");
+            int userid = UserLogin.addCustomer(nm, ag, gn, em, ps, ad, branch);
+            DataRow row = AdminLogin.getBranch(branch).Rows[0];
+            string branchData = $"{ row["code"]} | {row["name"]} | {row["address"]}";
 
-            }
-            else
-            {
-                Response.Write("<script>alert('customer registeration failed....!')</script>");
-            }
-
+            new SendMails().registerMail(userid.ToString(), nm, gn, em, ad, branchData);
+            Response.Write("<script>alert('customer registeration successfully....!')</script>");
         }
     }
 }

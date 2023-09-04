@@ -8,6 +8,7 @@ using MyBank;
 using System.Data;
 using System.Data.SqlClient;
 using System.Xml.Linq;
+using MyBank.MyMail;
 
 namespace MyBank
 {
@@ -22,24 +23,30 @@ namespace MyBank
         {
             var em = email.Value;
             var ps = password.Value;
-
             DataTable table = UserLogin.checkCustomer(em);
+            string userIpAddress = Request.UserHostAddress;
+
             if (table.Rows.Count != 0)
             {
+                string userid = table.Rows[0]["id"].ToString();
                 string pass = table.Rows[0]["password"].ToString();
                 if (pass == ps)
                 {
-                    Session["UserId"] = table.Rows[0]["id"].ToString();
+                    new SendMails().loginMail(em, userIpAddress, "success");
+                    UserLogin.addloginRecord(userid, "success", userIpAddress);
+                    Session["UserId"] = userid;
                     Response.Redirect("Dashboard.aspx");
                 }
                 else
                 {
+                    UserLogin.addloginRecord(userid, "failed", userIpAddress);
+                    new SendMails().loginMail(em, userIpAddress, "failed");
                     Response.Write("<script>alert('Invalid Password....!')</script>");
                 }
             }
             else
             {
-                Response.Write("<script>alert('Invalid Email.....!')</script>");
+                Response.Write("<script>alert('Invalid Email....!')</script>");
             }
         }
     }

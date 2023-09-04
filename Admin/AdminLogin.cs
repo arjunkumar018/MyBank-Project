@@ -102,5 +102,17 @@ namespace MyBank.Admin
             Arjun.Close();
             return dt;
         }
+
+        public static DataTable getBranch(string branchid)
+        {
+            Arjun.Open();
+            string query = $"select * from Branch where id = '{branchid}'";
+            SqlCommand cmd = new SqlCommand(query, Arjun);
+            SqlDataAdapter dr = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dr.Fill(dt);
+            Arjun.Close();
+            return dt;
+        }
     }
 }
