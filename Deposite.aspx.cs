@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using MyBank;
 
@@ -12,13 +13,22 @@ namespace MyBank
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-
-            }
             if (Session["UserId"] == null)
             {
                 Response.Redirect("Login.aspx");
+            }
+            if (!IsPostBack)
+            {
+                string status = UserLogin.getCustomer(Session["UserId"].ToString()).Rows[0]["status"].ToString();
+                if (status == "freeze")
+                {
+                    Response.Write("<script>alert('account is freeze, cant deposite amount....!')</script>");
+
+                    HtmlMeta meta = new HtmlMeta();
+                    meta.HttpEquiv = "Refresh";
+                    meta.Content = "3;url=Dashboard.aspx";
+                    this.Page.Controls.Add(meta);
+                }
             }
         }
 

@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Manager.master.cs" Inherits="MyBank.Manager.Manager" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+             <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+         body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+.bank-header {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bank-header .logo {
+    font-size: 24px;
+}
+.bank-header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.bank-header nav ul li {
+    margin-right: 20px;
+}
+
+.bank-footer {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+}
+
+.bank-footer .contact-info {
+    margin-top: 5px;
+}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <header class="bank-header">
+        <div class="logo">
+            <h4 style="color:red; text-align:center;">Abd.up62</h4>
+        <img src="data:image/png;base64,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">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">ContactUs</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Your main content goes here -->
+    </main>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+<footer class="bank-footer" style="background-color:yellow;">
+        <div class="copyright">&copy; 2023 Your Bank. All rights reserved.</div>
+        <div class="contact-info">Contact: abd360@gmail.com</div>
+    </footer>
+    <%--<footer>
+        <h1 class="text-center my-5">Thank You</h1>
+    </footer>--%>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -14,6 +14,11 @@
             <input type="text" class="form-control" id="name" runat="server">
         </div>
 
+          <div class="mb-3">
+            <label for="email" class="form-label">Manager Email</label>
+            <input type="email" class="form-control" id="email" runat="server">
+        </div>
+
         <div class="mb-3">
             <label for="code" class="form-label">Branch Code</label>
             <asp:DropDownList ID="branches" runat="server" class="form-select"></asp:DropDownList>

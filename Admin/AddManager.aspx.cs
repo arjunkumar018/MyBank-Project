@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Text;
+using MyBank.MyMail;
 
 namespace MyBank.Admin
 {
@@ -34,15 +36,30 @@ namespace MyBank.Admin
         {
             string nm = name.Value;
             string branchid = branches.SelectedValue;
+            String em = email.Value;
 
             if (AdminLogin.selectBranch(branchid).Rows.Count != 0)
             {
                 Response.Write("<script>alert('branch already assigned....!')</script>");
                 return;
             }
-            int val = AdminLogin.addManager(nm, branchid);
 
-            if(val>0)
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$";
+            StringBuilder pass = new StringBuilder();
+            Random rnd = new Random();
+            int length = 8;
+            while (0 < length--)
+            {
+                pass.Append(valid[rnd.Next(valid.Length)]);
+            }
+
+            string password = pass.ToString();
+
+
+
+            int val = AdminLogin.addManager(nm, branchid, em, password);
+            new SendMails().newManager(em, password, nm);
+            if (val>0)
             {
                 Response.Write("<script>alert('successfuly manager added....!')</script>");
             }

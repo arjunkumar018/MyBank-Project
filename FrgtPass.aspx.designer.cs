@@ -11,7 +11,7 @@ namespace MyBank
 {
 
 
-    public partial class Login
+    public partial class FrgtPass
     {
 
         /// <summary>
@@ -21,33 +21,33 @@ namespace MyBank
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// password control.
+        /// sendbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
+        protected global::System.Web.UI.WebControls.Button sendbtn;
 
         /// <summary>
-        /// lgbtn control.
+        /// Otp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button lgbtn;
+        protected global::System.Web.UI.WebControls.TextBox Otp;
 
         /// <summary>
-        /// linkbtn control.
+        /// sendbtn0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn;
+        protected global::System.Web.UI.WebControls.Button sendbtn0;
     }
 }

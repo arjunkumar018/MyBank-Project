@@ -24,6 +24,7 @@
 <%--        <asp:Button ID="btn" runat="server" Text="Login" class="btn btn-primary" />--%>
         <br />
         <br />
+        <asp:LinkButton ID="linkbtn" runat="server" Text="ForgatePassword" href="FrgtPass.aspx" ></asp:LinkButton><br />
     </div>
      <br />
         <br />

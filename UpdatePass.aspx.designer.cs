@@ -11,7 +11,7 @@ namespace MyBank
 {
 
 
-    public partial class Login
+    public partial class UpdatePass
     {
 
         /// <summary>
@@ -21,33 +21,42 @@ namespace MyBank
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// password control.
+        /// Newpass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
+        protected global::System.Web.UI.WebControls.TextBox Newpass;
 
         /// <summary>
-        /// lgbtn control.
+        /// ConfirmPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button lgbtn;
+        protected global::System.Web.UI.WebControls.TextBox ConfirmPass;
 
         /// <summary>
-        /// linkbtn control.
+        /// updbtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn;
+        protected global::System.Web.UI.WebControls.Button updbtn;
+
+        /// <summary>
+        /// backto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton backto;
     }
 }

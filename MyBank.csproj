@@ -76,13 +76,19 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Deposite.aspx" />
+    <Content Include="FrgtPass.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Manager\Dashboard.aspx" />
+    <Content Include="Manager\Login.aspx" />
     <Content Include="MyMail\login.html" />
+    <Content Include="MyMail\Manager.html" />
+    <Content Include="MyMail\OTP.html" />
     <Content Include="MyMail\Register copy.html" />
     <Content Include="MyMail\Register.html" />
     <Content Include="Register.aspx" />
     <Content Include="Transactions.aspx" />
     <Content Include="Transfer.aspx" />
+    <Content Include="UpdatePass.aspx" />
     <Content Include="Web.config" />
     <Content Include="Withdrawals.aspx" />
   </ItemGroup>
@@ -158,6 +164,13 @@
     <Compile Include="Deposite.aspx.designer.cs">
       <DependentUpon>Deposite.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrgtPass.aspx.cs">
+      <DependentUpon>FrgtPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrgtPass.aspx.designer.cs">
+      <DependentUpon>FrgtPass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,6 +178,29 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manager\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\Manager.Master.cs">
+      <DependentUpon>Manager.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager\Manager.Master.designer.cs">
+      <DependentUpon>Manager.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\ManagerLogic.cs" />
+    <Compile Include="MyMail\ManagerLogic.cs" />
     <Compile Include="MyMail\SendMails.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -190,6 +226,13 @@
     <Compile Include="Transfer.aspx.designer.cs">
       <DependentUpon>Transfer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UpdatePass.aspx.cs">
+      <DependentUpon>UpdatePass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdatePass.aspx.designer.cs">
+      <DependentUpon>UpdatePass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserLogin.cs" />
     <Compile Include="Users.Master.cs">
       <DependentUpon>Users.Master</DependentUpon>
@@ -208,6 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Admin.Master" />
+    <Content Include="Manager\Manager.Master" />
     <None Include="packages.config" />
     <Content Include="Users.Master" />
     <None Include="Web.Debug.config">
