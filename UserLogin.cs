@@ -151,5 +151,23 @@ namespace MyBank
             cmd.ExecuteNonQuery();
             Arjun.Close();
         }
+
+        public static void changeAttempt(int x, string id)
+        {
+            string query = $"UPDATE Customer SET attempt='{x}' WHERE id='{id}'";
+            Arjun.Open();
+            SqlCommand cmd = new SqlCommand(query, Arjun);
+            cmd.ExecuteNonQuery();
+            Arjun.Close();
+        }
+
+        public static void changePassword(string password, string id)
+        {
+            string query = $"UPDATE Customer SET attempt='0',password='{password}' WHERE id='{id}'";
+            Arjun.Open();
+            SqlCommand cmd = new SqlCommand(query, Arjun);
+            cmd.ExecuteNonQuery();
+            Arjun.Close();
+        }
     }
 }

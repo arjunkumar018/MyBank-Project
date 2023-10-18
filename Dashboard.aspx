@@ -6,7 +6,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <% 
+    <% 
         DataRow data = UserLogin.getCustomer(Session["UserId"].ToString()).Rows[0];
 
 
@@ -53,10 +53,12 @@
             </tbody>
 
         </table>
+        <br />
+        <a href="Deposite.aspx" class="btn btn-primary">Deposite</a>
+        <a href="Withdrawals.aspx" class="btn btn-success">Withdrawals</a>
+        <a href="Transfer.aspx" class="btn btn-warning">Transfer</a>     
     </div>
-
     </div>
-
     <br />
     <br />
 </asp:Content>
